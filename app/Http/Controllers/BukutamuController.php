@@ -10,4 +10,9 @@ class BukutamuController extends Controller
     {
         return view('registertamu.index');
     }
+
+    public function pemanggilan()
+    {
+        return view('pemanggilan.index');
+    }
 }
