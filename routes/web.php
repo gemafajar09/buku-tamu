@@ -17,3 +17,4 @@ use App\Http\Controllers\{
 */
 
 Route::get('/', [BukutamuController::class, 'index']);
+Route::get('pemanggilan', [BukutamuController::class, 'pemanggilan'])->name('pemanggilan');

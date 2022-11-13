@@ -1,107 +1,158 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<style>
-    #fototamu {
-        outline: auto;
-        width: 250px;
-        height: 300px;
-        position: absolute;
-        top: 230px;
-    }
-    #tandatangan {
-        outline: auto;
-        width: 250px;
-        height: 300px;
-        position: absolute;
-        top: 230px;
-    }
+@extends('component.template')
+@section('content')
 
-    #btnfoto {
-        position: absolute;
-        top: 550px;
-    }
-</style>
-
-<body>
-   <div class="container py-5">
+   <div class="py-5">
         <center><h3>BUKU TAMU</h3></center>
-        <div class="row">
-            <!-- form data -->
-            <div class="col-md-6">
-                <h4><b>REGISTER TAMU</b></h4>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="">Nama Lengkap</label>
-                            <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Instansi</label>
-                            <input type="text" name="instansi" id="instansi" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Tanggal</label>
-                            <input type="date" name="tanggal" id="tanggal" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Waktu</label>
-                            <input type="time" name="waktu" id="waktu" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="">No Telp</label>
-                            <input type="number" name="notelp" id="notelp" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Bertemu</label>
-                            <input type="text" name="bertemu" id="bertemu" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <center>
-                                <button type="submit" style="width:120px" class="btn btn-primary">Simpan</button>
-                                <button type="submit" style="width:120px" class="btn btn-danger">Batal</button>
-                            </center>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- form foto -->
-            <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
                 <div class="row">
+                    <!-- form data -->
                     <div class="col-md-6">
-                        <div id="fototamu"></div>
-                        <button id="btnfoto" type="button" class="btn btn-primary">Ambil Foto</button>
+                        <h4><b>REGISTER TAMU</b></h4>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="">Nama Lengkap</label>
+                                    <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Instansi</label>
+                                    <input type="text" name="instansi" id="instansi" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Tanggal</label>
+                                    <input type="date" name="tanggal" id="tanggal" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Waktu</label>
+                                    <input type="time" name="waktu" id="waktu" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">No Telp</label>
+                                    <input type="number" name="notelp" id="notelp" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Bertemu</label>
+                                    <input type="text" name="bertemu" id="bertemu" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <center>
+                                        <button type="submit" style="width:120px" class="btn btn-primary">Simpan</button>
+                                        <button type="submit" style="width:120px" class="btn btn-danger">Batal</button>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6 bg-gray">
-                        <div id="tandatangan"></div>
+
+                    <!-- form foto -->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="fototamu"></div>
+                                <button id="btnfoto" type="button" onclick="ambilgambar()" class="btn btn-success">Ambil Foto</button>
+                            </div>
+                            <div class="col-md-6 bg-gray">
+                                <canvas id="tandatangan"></canvas>
+                                <button type="button" id="clear" class="btn btn-danger">Hapus</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="container">
+            <table class="datatable table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nama Lengkap</th>
+                        <th>instansi</th>
+                        <th>Tanggal / waktu</th>
+                        <th>No Telpon</th>
+                        <th>Bertemu</th>
+                        <th>Keperluan</th>
+                        <th>Foto</th>
+                        <th>Tanda Tangan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
    </div>
 
-   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-   <script>
+    <script>
         function ShowCam() {
-        Webcam.set({
-            width: 220,
-            height: 220,
-            image_format: 'jpeg',
-            jpeg_quality: 100
+            Webcam.set({
+                // width: 250,
+                // height: 300,
+                image_format: 'jpeg',
+                jpeg_quality: 100
+            });
+
+            Webcam.attach('#fototamu');
+        }
+        window.onload = ShowCam;
+
+        function ambilgambar() {
+            Webcam.snap(function(data_uri) {
+                document.getElementById('fototamu').innerHTML = '<img id="image" src="' + data_uri + '"/>';
+            });
+        }
+
+        function resizeCanvas() {
+            var ratio = Math.max(window.devicePixelRatio || 1, 1);
+            canvas.width = canvas.offsetWidth * ratio;
+            canvas.height = canvas.offsetHeight * ratio;
+            canvas.getContext("2d").scale(ratio, ratio);
+        }
+
+        var canvas = document.getElementById('tandatangan');
+
+        //warna dasar signaturepad
+        var signaturePad = new SignaturePad(canvas, {
+            backgroundColor: 'rgb(255, 255, 255)'
         });
-        Webcam.attach('#fototamu');
-    }
-   </script>
-</body>
-</html>
+
+        //saat tombol clear diklik maka akan menghilangkan seluruh tanda tangan
+        document.getElementById('clear').addEventListener('click', function () {
+            signaturePad.clear();
+        });
+
+        //saat tombol undo diklik maka akan mengembalikan tanda tangan sebelumnya
+        // document.getElementById('undo').addEventListener('click', function () {
+        //     var data = signaturePad.toData();
+        //     if (data) {
+        //         data.pop(); // remove the last dot or line
+        //         signaturePad.fromData(data);
+        //     }
+        // });
+
+        //saat tombol change color diklik maka akan merubah warna pena
+        // document.getElementById('change-color').addEventListener('click', function () {
+
+        //     //jika warna pena biru maka buat menjadi hitam dan sebaliknya
+        //     if(signaturePad.penColor == "rgba(0, 0, 255, 1)"){
+
+        //         signaturePad.penColor = "rgba(0, 0, 0, 1)";
+        //     }else{
+        //         signaturePad.penColor = "rgba(0, 0, 255, 1)";
+        //     }
+        // })
+    </script>
+
+@endsection
+
+
