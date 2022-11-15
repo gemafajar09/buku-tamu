@@ -1,13 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\TamuController;
-use App\Http\Controllers\PegawaiController;
-use App\Http\Controllers\TujuanController;
+use App\Http\Controllers\{
+    BukutamuController,
+    LoginController,
+    HomeController,
+    UserController,
+    TamuController,
+    PegawaiController,
+    TujuanController
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -62,3 +64,7 @@ Route::get('tujuan/edit/{id}', [TujuanController::class, 'edit'])->name('edit-tu
 Route::post('tujuan/update/{id}', [TujuanController::class, 'update'])->name('update-tujuan');
 Route::get('tujuan/delete/{id}', [TujuanController::class, 'delete'])->name('delete-tujuan');
 // });
+
+Route::get('/', [BukutamuController::class, 'index']);
+Route::get('pemanggilan', [BukutamuController::class, 'pemanggilan'])->name('pemanggilan');
+
