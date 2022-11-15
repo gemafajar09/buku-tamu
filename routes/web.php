@@ -65,6 +65,6 @@ Route::post('tujuan/update/{id}', [TujuanController::class, 'update'])->name('up
 Route::get('tujuan/delete/{id}', [TujuanController::class, 'delete'])->name('delete-tujuan');
 // });
 
-Route::get('/', [BukutamuController::class, 'index']);
+Route::get('register-tamu', [BukutamuController::class, 'index'])->name('register-tamu');
 Route::get('pemanggilan', [BukutamuController::class, 'pemanggilan'])->name('pemanggilan');
 

@@ -31,14 +31,14 @@ class LoginController extends Controller
         } else {
             $datauser = DB::table('users')
                 ->where('email', $request->email)
-                ->get();
+                ->first();
 
             // dd($datauser);
-            if (count($datauser) == 1) {
-                if (Hash::check($request->password, $datauser[0]->password)) {
+            if ($datauser) {
+                if (Hash::check($request->password, $datauser->password)) {
                     //buat session
-                    $request->session()->put('id', $datauser[0]->id);
-                    $request->session()->put('name', $datauser[0]->name);
+                    $request->session()->put('id', $datauser->id);
+                    $request->session()->put('name', $datauser->name);
 
                     return redirect()->route('home')->with("success", "Selamat Datang " . Str::upper(session('name')));
                 } else {
