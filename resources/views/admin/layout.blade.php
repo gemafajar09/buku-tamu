@@ -6,24 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@yield('title')</title>
-    <!-- base:css -->
-    <link rel="stylesheet" href="{{ asset('assets_admin/vendors/typicons.font/font/typicons.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets_admin/vendors/css/vendor.bundle.base.css') }}">
-    <!-- endinject --> 
-    <!-- plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="{{ asset('assets_admin/css/vertical-layout-light/style.css') }}">
-    <!-- endinject -->
-    <link rel="shortcut icon" href="{{ asset('assets_admin/images/favicon.png') }}" />
-    {{-- alert --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-  </head>
-  <body>
+    @include('component.link')
+</head>
+<body>
+    @include('component.script')
+
     <div class="row" id="proBanner" style="height:5px;">
       <div class="col-12">
-        {{-- <span class="d-flex align-items-center purchase-popup"> --}}
-          {{-- <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p> --}}
           <a href="https://www.bootstrapdash.com/product/celestial-admin-template/?utm_source=organic&utm_medium=banner&utm_campaign=free-preview" target="_blank" class="btn download-button purchase-button ml-auto">Upgrade To Pro</a>
           <i class="typcn typcn-delete-outline" id="bannerClose"></i>
         </span>
@@ -41,7 +30,7 @@
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
           <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item d-none d-lg-flex  mr-2">
+            <!-- <li class="nav-item d-none d-lg-flex  mr-2">
               <a class="nav-link" href="#">
                 Help
               </a>
@@ -138,7 +127,7 @@
                   </div>
                 </a>
               </div>
-            </li>
+            </li> -->
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle  pl-0 pr-0" href="#" data-toggle="dropdown" id="profileDropdown">
                 <i class="typcn typcn-user-outline mr-0"></i>
@@ -204,22 +193,24 @@
                 </p>
               </div>
             </div>
-            <div class="nav-search">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Type to search..." aria-label="search" aria-describedby="search">
-                <div class="input-group-append">
-                  <span class="input-group-text" id="search">
-                    <i class="typcn typcn-zoom"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
             <p class="sidebar-menu-title">Dash menu</p>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('/') }}">
               <i class="typcn typcn-device-desktop menu-icon"></i>
-              <span class="menu-title">Dashboard <span class="badge badge-primary ml-3">New</span></span>
+              <span class="menu-title">Dashboard </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('register-tamu') }}">
+              <i class="typcn typcn-group menu-icon"></i>
+              <span class="menu-title">Register Tamu </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('register-tamu') }}">
+              <i class="typcn typcn-group menu-icon"></i>
+              <span class="menu-title">Pemanggilan</span>
             </a>
           </li>
           <li class="nav-item">
@@ -243,14 +234,6 @@
             </div>
           </li>
         </ul>
-        <ul class="sidebar-legend">
-          <li>
-            <p class="sidebar-menu-title">Category</p>
-          </li>
-          <li class="nav-item"><a href="#" class="nav-link">#Sales</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">#Marketing</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">#Growth</a></li>
-        </ul>
       </nav>
         <!-- partial -->
         <div class="main-panel">
@@ -271,38 +254,24 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
-    <!-- base:js -->
-    <script src="{{ asset('assets_admin/vendors/js/vendor.bundle.base.js') }}"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page-->
-    <!-- End plugin js for this page-->
-    <!-- inject:js -->
-    <script src="{{ asset('assets_admin/js/off-canvas.js') }}"></script>
-    <script src="{{ asset('assets_admin/js/hoverable-collapse.js') }}"></script>
-    <script src="{{ asset('assets_admin/js/template.js') }}"></script>
-    <script src="{{ asset('assets_admin/js/settings.js') }}"></script>
-    <script src="{{ asset('assets_admin/js/todolist.js') }}"></script>
-    <!-- endinject -->
-    <!-- plugin js for this page -->
-    <script src="{{ asset('assets_admin/vendors/progressbar.js/progressbar.min.js') }}"></script>
-    <script src="{{ asset('assets_admin/vendors/chart.js/Chart.min.js') }}"></script>
-    <!-- End plugin js for this page -->
-    <!-- Custom js for this page-->
-    <script src="{{ asset('assets_admin/js/dashboard.js') }}"></script>
-    <!-- End custom js for this page-->
-    {{-- toastr alert --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            resizeCanvas();
+            // $('.datatable').DataTable();
+        })
+
+    </script>
 
     @if (session('success'))
     <script>
       toastr.success('{{ session("success") }}')
-    </script>   
+    </script>
     @elseif (session('error'))
     <script>
       toastr.error('{{ session("error") }}')
     </script>
     @endif
-    
+
   </body>
 </html>
