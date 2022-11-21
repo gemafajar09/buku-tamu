@@ -15,7 +15,7 @@
     }
     #tandatangan {
         outline: auto;
-        width: auto;
+        width: 400px;
         height: 280px;
         margin-top:20px;
 
@@ -100,6 +100,18 @@
                                 <button id="btnfoto" type="button" onclick="ambilgambar()" class="btn btn-success">Ambil Foto</button>
                             </div>
                             <div class="col-md-12 bg-gray">
+                                <style>
+                                    .active {
+                                        position: fixed;
+                                        margin: 0 !important;
+                                        top:0;
+                                        left: 0;
+                                        width: 100% !important;
+                                        height: 100% !important;
+                                        z-index: 9999;
+                                        background-color: white;
+                                    }
+                                </style>
                                 <canvas id="tandatangan"></canvas>
                             </div>
                             <div class="ml-3">
@@ -111,34 +123,6 @@
             </div>
         </div>
 
-        <!-- <div class="container">
-            <table class="datatable table table-striped">
-                <thead>
-                    <tr>
-                        <th>Nama Lengkap</th>
-                        <th>instansi</th>
-                        <th>Tanggal / waktu</th>
-                        <th>No Telpon</th>
-                        <th>Bertemu</th>
-                        <th>Keperluan</th>
-                        <th>Foto</th>
-                        <th>Tanda Tangan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div> -->
     </div>
 
     <script>
@@ -163,14 +147,6 @@
             cekData()
         }
 
-        function resizeCanvas() {
-            var ratio = Math.max(window.devicePixelRatio || 1, 1);
-            canvas.width = canvas.offsetWidth * ratio;
-            canvas.height = canvas.offsetHeight * ratio;
-            canvas.getContext("2d").scale(ratio, ratio);
-            cekData()
-        }
-
         var canvas = document.getElementById('tandatangan');
 
         //warna dasar signaturepad
@@ -178,6 +154,34 @@
             backgroundColor: 'rgb(255, 255, 255)'
         });
 
+        function resizeCanvas() {
+            const ratio =  Math.max(window.devicePixelRatio || 1, 1);
+            canvas.width = canvas.offsetWidth * ratio;
+            canvas.height = canvas.offsetHeight * ratio;
+            canvas.getContext("2d").scale(ratio, ratio);
+            // signaturePad.clear(); // otherwise isEmpty() might return incorrect value
+        }
+
+        canvas.addEventListener("click", ttd);
+        
+        $("body").on('keypress',function(e) {
+            if(e.which == 13) {
+                $('#tandatangan').removeClass("active")
+                active = false
+            }
+        });
+
+        active = false;
+        function ttd() {
+            if (!active) {
+                $('#tandatangan').addClass("active")
+                resizeCanvas()
+                active = true
+            }
+        }
+
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
 
         //saat tombol clear diklik maka akan menghilangkan seluruh tanda tangan
         document.getElementById('clear').addEventListener('click', function () {

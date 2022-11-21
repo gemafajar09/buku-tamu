@@ -16,6 +16,12 @@ class BukutamuController extends Controller
 
     public function pemanggilan()
     {
+        $play = DB::table('playlists')->get();
+        $list = [];
+        foreach($play as $a){
+            $list[] = $a->playlist;
+        }
+        $data['playlist'] = $list;
         $data['pegawai'] = DB::table('pegawais')->get();
         $data['tujuan'] = DB::table('tujuans')->get();
         return view('pemanggilan.index',$data);

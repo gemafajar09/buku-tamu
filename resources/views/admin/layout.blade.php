@@ -159,8 +159,8 @@
 
     <script>
         $(document).ready(function(){
-            resizeCanvas();
-            // $('.datatable').DataTable();
+            // resizeCanvas();
+            $('.datatable').DataTable();
         })
 
     </script>
