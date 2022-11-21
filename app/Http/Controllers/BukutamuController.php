@@ -16,7 +16,9 @@ class BukutamuController extends Controller
 
     public function pemanggilan()
     {
-        return view('pemanggilan.index');
+        $data['pegawai'] = DB::table('pegawais')->get();
+        $data['tujuan'] = DB::table('tujuans')->get();
+        return view('pemanggilan.index',$data);
     }
 
     public function simpan(Request $r)
@@ -43,7 +45,7 @@ class BukutamuController extends Controller
         $data['waktu'] = $r->waktu;
         $data['no_telp'] = $r->notelp;
         $data['bertemu'] = $r->bertemu;
-        $data['keperluan'] = "";
+        $data['keperluan'] = $r->keperluan;
         $data['foto'] = $fileUser;
         $data['ttd'] = $fileTtd;
 

@@ -17,4 +17,4 @@
 
     <script src="{{ asset('assets_admin/js/dashboard.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="https://code.responsivevoice.org/responsivevoice.js?key=lQPREaQE"></script>
+
