@@ -12,7 +12,7 @@ Halaman Data Tamu
                     <a href="{{ route('input-tamu') }}" class="btn btn-primary btn-sm"><i class="typcn typcn-plus"></i>Tambah Data</a>
                 </p> --}}
                 <div class="table-responsive pt-3">
-                    <table class="table table-bordered">
+                    <table class="datatable table table-bordered">
                         <thead>
                             <tr>
                                 <th>No</th>

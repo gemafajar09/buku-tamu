@@ -5,8 +5,8 @@ Halaman Home
 @section('content')
 <div class="row">
     <div class="col-sm-6">
-        <h3 class="mb-0 font-weight-bold">Kenneth Osborne</h3>
-        <p>Your last login: 21h ago from newzealand.</p>
+        <h3 class="mb-0 font-weight-bold">Dashboard</h3>
+        {{-- <p>Your last login: 21h ago from newzealand.</p> --}}
     </div>
     <div class="col-sm-6">
         <!--  -->
@@ -19,7 +19,7 @@ Halaman Home
                     <a href="{{ route('input-tamu') }}" class="btn btn-primary btn-sm"><i class="typcn typcn-plus"></i>Tambah Data</a>
                 </p> --}}
                 <div class="table-responsive pt-3">
-                    <table class="table table-bordered">
+                    <table class="datatable table table-bordered">
                         <thead>
                             <tr>
                                 <th>No</th>
