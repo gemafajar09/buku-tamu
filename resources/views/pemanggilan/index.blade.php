@@ -7,7 +7,7 @@ Halaman Data User
     <style>
         #playlist {
             width: 100%;
-            height: 460px;
+            height: 350px;
             outline: auto;
         }
 
@@ -44,25 +44,37 @@ Halaman Data User
                         <h6>Pemanggilan Pegawai</h6>
                         <div class="form-group">
                             <label for="">Nama</label>
-                            <select style="outline:auto" name="nama" id="nama" class="form-control"></select>
+                            <select style="outline:auto" name="pegawai" id="pegawai" class="form-control">
+                            @foreach($pegawai as $pg)
+                                <option value="{{$pg->nama_pegawai}}">{{$pg->nama_pegawai}}</option>
+                            @endforeach
+                        </select>
                         </div>
                         <div class="form-group">
                             <label for="">Tujuan</label>
-                            <select style="outline:auto" name="tujuan" id="tujuan" class="form-control"></select>
+                            <select style="outline:auto" name="tujuan" id="tujuan" class="form-control">
+                            @foreach($tujuan as $tj)
+                                <option value="{{$tj->tujuan}}">{{$tj->tujuan}}</option>
+                            @endforeach
+                        </select>
                         </div>
                         <div align="right">
                             <button onclick="bahasaIndo()" class="btn btn-primary">Memanggil</button>
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <h6>Play List</h6>
+
                         <div id="playlist">
                             <div id="audio_player">
                                 @php
                                     $data = ["audio","audio1"];
                                 @endphp
                                 @foreach($data as $i => $a)
-                                    <input type="radio" name="" id=""> {{$a}}<br>
+                                <div class="w-full h-5">
+                                    <input style="height: 12px; width: 12px; margin:5px" type="radio" name="playlist" id="playlist"> {{$a}}<br>
+                                </div>
                                 @endforeach
                             </div>
                         </div>
@@ -74,7 +86,7 @@ Halaman Data User
                         </div>
                         <div class="float-right">
                             <center class="py-2">
-                                <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">
+                                <input id="volumeslider" type="range" min="0" max="100" value="30" step="1">
                                 <button id="playpausebtn" class="btn btn-primary"><div id="namep"></div></button>
                                 <input id="seekslider" type="hidden" value="0" step="1">
                                 <button id="mutebtn" class="btn btn-danger"><div id="names"></div></button>
@@ -85,21 +97,23 @@ Halaman Data User
             </div>
         </div>
    </div>
-
+        <script src="https://code.responsivevoice.org/responsivevoice.js?key=lQPREaQE"></script>
     <script>
         document.getElementById('namep').innerHTML = "Play"
         document.getElementById('names').innerHTML = "Mute"
 
-        responsiveVoice.setTextReplacements([{
-            searchvalue: "human",
-            newvalue: "robot",
-            systemvoices: ["id-ID"],
-            lang : 'id-ID'
-        }]);
+        // responsiveVoice.setTextReplacements([{
+        //     searchvalue: "human",
+        //     newvalue: "robot",
+        //     systemvoices: ["id-ID"],
+        //     lang : 'id-ID'
+        // }]);
         function bahasaIndo()
         {
+            var pegawai = document.getElementById('pegawai').value
+            var tujuan = document.getElementById('tujuan').value
             let msg = new SpeechSynthesisUtterance();
-            var text = "Dipanggil Riyan Dengan nomor antrian 1 2 4 5 6 ke blok c";
+            var text = "Panggilan kepada "+pegawai+" tujuan "+tujuan;
             responsiveVoice.speak(text,
                 "Indonesian Male",
                 {

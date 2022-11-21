@@ -30,104 +30,6 @@
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
           <ul class="navbar-nav navbar-nav-right">
-            <!-- <li class="nav-item d-none d-lg-flex  mr-2">
-              <a class="nav-link" href="#">
-                Help
-              </a>
-            </li>
-            <li class="nav-item dropdown d-flex">
-              <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
-                <i class="typcn typcn-message-typing"></i>
-                <span class="count bg-success">2</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-                <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img src="{{ asset('assets_admin/images/faces/face4.jpg') }}" alt="image" class="profile-pic">
-                  </div>
-                  <div class="preview-item-content flex-grow">
-                    <h6 class="preview-subject ellipsis font-weight-normal">David Grey
-                    </h6>
-                    <p class="font-weight-light small-text mb-0">
-                      The meeting is cancelled
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img src="{{ asset('assets_admin/images/faces/face2.jpg') }}" alt="image" class="profile-pic">
-                  </div>
-                  <div class="preview-item-content flex-grow">
-                    <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
-                    </h6>
-                    <p class="font-weight-light small-text mb-0">
-                      New product launch
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img src="{{ asset('assets_admin/images/faces/face3.jpg') }}" alt="image" class="profile-pic">
-                  </div>
-                  <div class="preview-item-content flex-grow">
-                    <h6 class="preview-subject ellipsis font-weight-normal"> Johnson
-                    </h6>
-                    <p class="font-weight-light small-text mb-0">
-                      Upcoming board meeting
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </li>
-            <li class="nav-item dropdown  d-flex">
-              <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
-                <i class="typcn typcn-bell mr-0"></i>
-                <span class="count bg-danger">2</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-success">
-                      <i class="typcn typcn-info-large mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal">Application Error</h6>
-                    <p class="font-weight-light small-text mb-0">
-                      Just now
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-warning">
-                      <i class="typcn typcn-cog mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal">Settings</h6>
-                    <p class="font-weight-light small-text mb-0">
-                      Private message
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-info">
-                      <i class="typcn typcn-user-outline mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                    <p class="font-weight-light small-text mb-0">
-                      2 days ago
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </li> -->
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle  pl-0 pr-0" href="#" data-toggle="dropdown" id="profileDropdown">
                 <i class="typcn typcn-user-outline mr-0"></i>
@@ -196,19 +98,19 @@
             <p class="sidebar-menu-title">Dash menu</p>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('/') }}">
+            <a class="nav-link" href="{{ route('home') }}">
               <i class="typcn typcn-device-desktop menu-icon"></i>
               <span class="menu-title">Dashboard </span>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="{{ route('register-tamu') }}">
               <i class="typcn typcn-group menu-icon"></i>
               <span class="menu-title">Register Tamu </span>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('register-tamu') }}">
+            <a class="nav-link" href="{{ route('pemanggilan') }}">
               <i class="typcn typcn-group menu-icon"></i>
               <span class="menu-title">Pemanggilan</span>
             </a>
@@ -244,8 +146,8 @@
           <!-- partial:partials/_footer.html -->
           <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="https://www.bootstrapdash.com/" target="_blank">bootstrapdash.com</a> 2020</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Free <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard </a>templates from Bootstrapdash.com</span>
+              <!-- <span class="text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="https://www.bootstrapdash.com/" target="_blank">bootstrapdash.com</a> 2020</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Free <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard </a>templates from Bootstrapdash.com</span> -->
             </div>
           </footer>
           <!-- partial -->

@@ -25,11 +25,10 @@
         <div class="row w-100 mx-0">
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-              <div class="brand-logo">
-                <img src="{{ asset('assets_admin/images/logo.svg') }}" alt="logo">
-              </div>
-              <h4>Hello! let's get started</h4>
-              <h6 class="font-weight-light">Sign in to continue.</h6>
+
+            <center>
+                <h3>LOGIN</h3>
+            </center>
               <form class="pt-3" action="{{ route('login') }}" method="post">
                 @csrf
                 <div class="form-group">
@@ -39,9 +38,9 @@
                   <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <div class="mt-3">
-                  <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">SIGN IN</button>
+                  <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">Log In</button>
                 </div>
-                <div class="my-2 d-flex justify-content-between align-items-center">
+                <!-- <div class="my-2 d-flex justify-content-between align-items-center">
                   <div class="form-check">
                     <label class="form-check-label text-muted">
                       <input type="checkbox" class="form-check-input">
@@ -57,7 +56,7 @@
                 </div>
                 <div class="text-center mt-4 font-weight-light">
                   Don't have an account? <a href="register.html" class="text-primary">Create</a>
-                </div>
+                </div> -->
               </form>
             </div>
           </div>
@@ -82,7 +81,7 @@
   {{-- @if (session('success'))
   <script>
     toastr.success('{{ session("success") }}')
-  </script>   
+  </script>
   @elseif (session('error'))
   <script>
     toastr.error('{{ session("error") }}')

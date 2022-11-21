@@ -23,12 +23,12 @@ use App\Http\Controllers\{
 */
 
 // Route::middleware(['belum_login'])->group(function () {
-Route::get('/', [LoginController::class, 'index'])->name('/');
+Route::get('admin', [LoginController::class, 'index'])->name('/');
 Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 // });
 
-Route::get('home', [HomeController::class, 'index'])->name('home');
+Route::get('dashboard', [HomeController::class, 'index'])->name('home');
 // Route::middleware(['sudah_login'])->group(function () {
 
 
@@ -65,6 +65,6 @@ Route::post('tujuan/update/{id}', [TujuanController::class, 'update'])->name('up
 Route::get('tujuan/delete/{id}', [TujuanController::class, 'delete'])->name('delete-tujuan');
 // });
 
-Route::get('register-tamu', [BukutamuController::class, 'index'])->name('register-tamu');
+Route::get('/', [BukutamuController::class, 'index'])->name('register-tamu');
 Route::get('pemanggilan', [BukutamuController::class, 'pemanggilan'])->name('pemanggilan');
 

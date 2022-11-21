@@ -29,7 +29,7 @@ Halaman Data Tamu
                             </tr>
                         </thead>
                         <tbody>
-                            <?php 
+                            <?php
                             $no = 1;
                             foreach($tamu as $data) :
                             ?>
@@ -42,8 +42,8 @@ Halaman Data Tamu
                                 <td>{{ $data->no_telp }}</td>
                                 <td>{{ $data->bertemu }}</td>
                                 <td>{{ $data->keperluan }}</td>
-                                <td><img src="{{ asset('assets_admin/foto/' . $data->foto) }}" alt=""></td>
-                                <td><img src="{{ asset('assets_admin/ttd/' . $data->ttd) }}" alt=""></td>
+                                <td><img src="{{ asset($data->foto) }}" alt=""></td>
+                                <td><img src="{{ asset($data->ttd) }}" alt=""></td>
                                 <td>
                                     <a href="{{ route('edit-tamu', $data->id) }}" class="btn btn-info btn-sm btn-block"><i class="typcn typcn-edit"></i></a>
                                     <a href="{{ route('delete-tamu', $data->id) }}" class="btn btn-danger btn-sm btn-block"><i class="typcn typcn-trash"></i></a>

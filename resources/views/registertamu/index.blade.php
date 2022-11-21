@@ -1,10 +1,10 @@
-@extends('admin.layout')
-@section('title')
-Halaman Data User
-@endsection
+@extends('component.template')
+
 @section('content')
 
 <style>
+
+
     #fototamu {
         outline: auto;
         width: 380px;
@@ -23,6 +23,10 @@ Halaman Data User
         /* top: 360px; */
     }
 
+    body {
+        /* transform: scale(0,8) */
+    }
+
     /* #btnfoto {
         position: absolute;
         top: 570px;
@@ -36,8 +40,9 @@ Halaman Data User
 
 </style>
 
-   <div class="">
+   <div class="container">
         <center><h3>BUKU TAMU</h3></center>
+        <hr style="border :1px solid black">
         <div class="card">
             <div class="card-body">
                 <div class="row">
@@ -45,30 +50,34 @@ Halaman Data User
                     <div class="col-md-5">
                         <h4><b>REGISTER TAMU</b></h4>
                         <div class="card">
-                            <div class="card-body" style="outline:auto">
+                            <div class="card-body">
                                 <div class="form-group">
                                     <label for="">Nama Lengkap</label>
-                                    <input type="text" id="nama_lengkap" onkeyup="cekData()" name="nama_lengkap" class="form-control" style="outline:auto">
+                                    <input type="text" id="nama_lengkap" onkeyup="cekData()" name="nama_lengkap" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Instansi</label>
-                                    <input type="text" id="instansi" onkeyup="cekData()" name="instansi" class="form-control" style="outline:auto">
+                                    <input type="text" id="instansi" onkeyup="cekData()" name="instansi" class="form-control">
                                 </div>
-                                <div class="form-group">
-                                    <label for="">Tanggal</label>
-                                    <input type="date" onkeyup="cekData()" id="tanggal" name="tanggal" value="{{date('Y-m-d')}}" class="form-control" style="outline:auto">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Waktu</label>
-                                    <input type="time" id="waktu" name="waktu"  onkeyup="cekData()" value="{{date('H:i:s')}}" class="form-control" style="outline:auto">
-                                </div>
+                                <!-- <div class="form-group">
+                                    <label for="">Tanggal</label> -->
+                                    <input type="hidden" onkeyup="cekData()" id="tanggal" name="tanggal" value="{{date('Y-m-d')}}" class="form-control">
+                                <!-- </div> -->
+                                <!-- <div class="form-group">
+                                    <label for="">Waktu</label> -->
+                                    <input type="hidden" id="waktu" name="waktu"  onkeyup="cekData()" value="{{date('H:i:s')}}" class="form-control">
+                                <!-- </div> -->
                                 <div class="form-group">
                                     <label for="">No Telp</label>
-                                    <input type="number" id="notelp" name="notelp"  onkeyup="cekData()" class="form-control" style="outline:auto">
+                                    <input type="number" id="notelp" name="notelp"  onkeyup="cekData()" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Bertemu</label>
-                                    <input type="text" id="bertemu" name="bertemu" onkeyup="cekData()" class="form-control" style="outline:auto">
+                                    <input type="text" id="bertemu" name="bertemu" onkeyup="cekData()" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Keperluan</label>
+                                    <textarea name="keperluan" id="keperluan" class="form-control" cols="30" rows="10"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <center>
@@ -86,10 +95,14 @@ Halaman Data User
                             <div class="col-md-12">
 
                                 <div id="fototamu"></div>
+                            </div>
+                            <div class="col-md-12 py-2">
                                 <button id="btnfoto" type="button" onclick="ambilgambar()" class="btn btn-success">Ambil Foto</button>
                             </div>
                             <div class="col-md-12 bg-gray">
                                 <canvas id="tandatangan"></canvas>
+                            </div>
+                            <div class="ml-3">
                                 <button type="button" id="clear" class="btn btn-danger">Hapus</button>
                             </div>
                         </div>
@@ -182,6 +195,7 @@ Halaman Data User
             var waktu = document.getElementById('waktu').value
             var notelp = document.getElementById('notelp').value
             var bertemu = document.getElementById('bertemu').value
+            var keperluan = document.getElementById('keperluan').value
 
 
             if(nama_lengkap == ""){
@@ -200,6 +214,8 @@ Halaman Data User
                 simpan.disabled = true;
             }else if(signature == ""){
                 simpan.disabled = true;
+            }else if(keperluan == ""){
+                simpan.disabled = true;
             }else{
                 simpan.disabled = false;
             }
@@ -215,6 +231,7 @@ Halaman Data User
             var waktu = document.getElementById('waktu').value
             var notelp = document.getElementById('notelp').value
             var bertemu = document.getElementById('bertemu').value
+            var keperluan = document.getElementById('keperluan').value
 
             var formdata = new FormData();
             formdata.append("foto", file);
@@ -225,6 +242,7 @@ Halaman Data User
             formdata.append("waktu", waktu);
             formdata.append("notelp", notelp);
             formdata.append("bertemu", notelp);
+            formdata.append("keperluan", keperluan);
             $.ajax({
                 url: "{{url('api/simpanRegister')}}",
                 type: "POST",
@@ -233,7 +251,11 @@ Halaman Data User
                 data: formdata,
                 dataType: 'JSON',
                 success: function(data) {
-                    console.log(data.kode_antrian);
+                   if(data){
+                    window.location.reload()
+                   }else{
+                    toastr.error("Periksa Kembali")
+                   }
                 }
             })
         }
