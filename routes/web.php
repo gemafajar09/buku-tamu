@@ -8,7 +8,8 @@ use App\Http\Controllers\{
     UserController,
     TamuController,
     PegawaiController,
-    TujuanController
+    TujuanController,
+    PlaylistController
 };
 
 /*
@@ -31,6 +32,10 @@ Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('dashboard', [HomeController::class, 'index'])->name('home');
 // Route::middleware(['sudah_login'])->group(function () {
 
+// playlist
+Route::get('playlist',[PlaylistController::class, 'index'])->name('playlist');
+Route::post('playlist-add',[PlaylistController::class, 'simpan'])->name('playlist-add');
+Route::get('playlist-hapus/{id}',[PlaylistController::class, 'hapus'])->name('playlist-hapus');
 
 //User
 Route::get('user', [UserController::class, 'index'])->name('user');
