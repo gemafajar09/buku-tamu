@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" href="{{ asset('assets_admin/css/vertical-layout-light/style.css') }}">
 <!-- endinject -->
-<link rel="shortcut icon" href="{{ asset('assets_admin/images/favicon.png') }}" />
+<!-- <link rel="shortcut icon" href="{{ asset('assets_admin/images/favicon.png') }}" /> -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <!--

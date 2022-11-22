@@ -22,8 +22,9 @@
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="index.html"><img src="{{ asset('assets_admin/images/logo.svg') }}" alt="logo"/></a>
-          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('assets_admin/images/logo-mini.svg') }}" alt="logo"/></a>
+            <a class="navbar-brand brand-logo" style="font-size:14px">ADMINISTRATOR</a>
+          <!-- <a class="navbar-brand brand-logo" href="index.html"><img src="{{ asset('assets_admin/images/logo.svg') }}" alt="logo"/></a> -->
+          <!-- <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('assets_admin/images/logo-mini.svg') }}" alt="logo"/></a> -->
           <button class="navbar-toggler navbar-toggler align-self-center d-none d-lg-flex" type="button" data-toggle="minimize">
             <span class="typcn typcn-th-menu"></span>
           </button>
@@ -31,11 +32,11 @@
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile dropdown">
-              <a class="nav-link dropdown-toggle  pl-0 pr-0" href="#" data-toggle="dropdown" id="profileDropdown">
+              <a class="nav-link dropdown-toggle  pl-0 pr-0" href="#" role="button" onclick="logv()" data-toggle="dropdown" id="profileDropdown">
                 <i class="typcn typcn-user-outline mr-0"></i>
                 <span class="nav-profile-name">{{ session('name')}}</span>
               </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <div id="logv" class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                 <a class="dropdown-item" href="{{ route('logout') }}">
                 <i class="typcn typcn-power text-primary"></i>
                 Logout
@@ -50,34 +51,7 @@
       </nav>
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_settings-panel.html -->
-        <div class="theme-setting-wrapper">
-          <div id="settings-trigger"><i class="typcn typcn-cog-outline"></i></div>
-          <div id="theme-settings" class="settings-panel">
-            <i class="settings-close typcn typcn-delete-outline"></i>
-            <p class="settings-heading">SIDEBAR SKINS</p>
-            <div class="sidebar-bg-options" id="sidebar-light-theme">
-              <div class="img-ss rounded-circle bg-light border mr-3"></div>
-              Light
-            </div>
-            <div class="sidebar-bg-options selected" id="sidebar-dark-theme">
-              <div class="img-ss rounded-circle bg-dark border mr-3"></div>
-              Dark
-            </div>
-            <p class="settings-heading mt-2">HEADER SKINS</p>
-            <div class="color-tiles mx-0 px-4">
-              <div class="tiles success"></div>
-              <div class="tiles warning"></div>
-              <div class="tiles danger"></div>
-              <div class="tiles primary"></div>
-              <div class="tiles info"></div>
-              <div class="tiles dark"></div>
-              <div class="tiles default border"></div>
-            </div>
-          </div>
-        </div>
-        <!-- partial -->
-        <!-- partial:partials/_sidebar.html -->
+
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
@@ -129,6 +103,7 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('playlist') }}">Playlist</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('user') }}">User</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('pegawai') }}">Pegawai</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('tujuan') }}">Tujuan</a></li>
@@ -142,8 +117,6 @@
           <div class="content-wrapper">
             @yield('content')
           </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
           <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <!-- <span class="text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="https://www.bootstrapdash.com/" target="_blank">bootstrapdash.com</a> 2020</span>
@@ -158,10 +131,23 @@
     </div>
 
     <script>
+        var buk = false
         $(document).ready(function(){
             // resizeCanvas();
             $('.datatable').DataTable();
         })
+
+        function logv()
+        {
+            buk = !buk
+            if(buk)
+            {
+                $('#logv').show()
+            }else{
+                $('#logv').hide()
+
+            }
+        }
 
     </script>
 
